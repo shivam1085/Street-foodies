@@ -9,7 +9,7 @@ def show(request):
     return render(request,"explore.html",{'objs':objs})
 
 def search(request):
-    
+    #connect my app with sql
     # conn = sqlite3.connect("db.sqlite3")
     # cur = conn.cursor()
     # print(cur)
