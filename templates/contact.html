@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/Contact.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <nav class="navbar  h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo"><img src="img/logo.png" alt="logo"></div>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="rightNav v-class-resp">
+            <input type="text" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <section class="background firstSection">
+        <div class="box-main">
+        
+                <p class="text-big">CONTACT</p>
+                
+            
+            
+        </div>
+
+    </section>
+
+
+
+
+    <div class="contain">
+        <form action = "query" method = "POST"> 
+            {% csrf_token %} 
+            <input name="name" type="text" class="form-name" placeholder="Your Name" required>
+            <br>
+            <input name="email" type="email" class="form-name" placeholder="Your Email" required>
+            <br>
+
+            <textarea name="message" class="form-name" id="" cols="10" rows="10" placeholder="Message" required></textarea>
+            <br>
+
+            <input type="submit" class="form-btn" value="SEND">
+
+        </form>
+    </div>
+    
+
+
+    
+    <hr>
+    <br><br>
+    <hr>
+
+    <footer>
+        <p class="footer text-footer">
+        Copyright &copy; 2020 - All rights reserved
+        </p>
+    </footer>
+
+    <script src="js/resp.js"></script>
+</body>
+</html>

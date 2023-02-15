@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%  load static %}
+<title>Explore</title>
+<script>
+                  
+	function send_id(temp){
+// 		var x=document.getElementById(temp).textContent;
+                
+// 				//confirm(x);
+
+var url="/visit?ids="+temp;
+// 		// var x=temp;
+
+	 var req = new XMLHttpRequest();
+		req.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.write(req.responseText)
+                    
+                                                               }
+                else{
+                  document.getElementById('container').innerHTML = '<div class="loader"></div>';
+			
+                }
+                                                               
+  };
+req.open("GET", url, true);
+   req.send();
+
+
+	}
+   
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travello template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  <br><br>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href=""></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="sports"></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="tech"></a>
+			  </li>
+			  <li class="nav-item active">
+				<a class="nav-link" href="add_item"></a>
+			  </li>
+			  
+			  <li class="nav-item active">
+				<a class="nav-link" href="add_item"></a>
+			  </li>
+			
+		   
+		  
+			
+		</ul>
+		  <form class="form-inline my-2 my-lg-0" method="GET" action="search">
+			{% csrf_token %}
+			<input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  </form>
+		</div>
+	  </nav>
+
+	<!-- Menu -->
+
+	
+	
+	<!-- Home -->
+
+	
+
+	
+	
+
+	<!-- Destinations -->
+
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Food you want</div>
+					<div class="section_title"><h2>Exclusive</h2></div>
+				</div>
+			</div>
+			<!-- missing value -->
+			<div class="row">
+				{% for item in objs %}
+				<div class="destination item">
+					<div class="destination_title"><a href="destinations.html">{{item.title}}</a></div>
+						<div class="destination_subtitle"><p>{{item.location}}</p></div>
+					<div class="destination_image">
+						<img src={{item.img.url}} alt=""><a href="temp.html"></a></img>
+						<div class="spec_offer text-center"><a href="#">Exclusive</a></div>
+					</div>
+					<div class="destination_content">
+						
+						<div class="destination_price">open time: {{item.time}}</div>
+						<div class="destination_price">{{item.rating}}</div>
+					</div>
+			
+					<button id={{item.id}} type="button" onclick="send_id(this.id)">Visit</button>
+				</div>
+				{% endfor %}
+			  </div>
+		</div>
+	</div>
+
+	<!-- Testimonials -->
+	<!-- News -->
+
+	
+	<!-- Footer -->
+
+	
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js"></script>
+</body>
+</html>

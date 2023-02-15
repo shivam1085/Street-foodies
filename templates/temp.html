@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code</title>
+</head>
+<body>
+    <h3>this is QR code funstion</h3> <div class="contain">
+        <form action = "thqrcode" method = "GET"> 
+            {% csrf_token %} 
+            <!-- <input name="fristname" type="text" class="form-name" placeholder="Frist Name" required>
+            <br>
+            <input name="lastname" type="text" class="form-name" placeholder="Last Name" required>
+            <br>
+             -->
+            <input name="mobile" type="text" class="form-name" placeholder="mobile no" required>
+            <br>
+            <!-- <input name="password" type="password" class="form-name" placeholder="password" required> -->
+            <br>
+
+            <input type="submit" class="form-btn" value="SCAn code">
+
+        </form>
+    </div>
+</body>
+</html>
